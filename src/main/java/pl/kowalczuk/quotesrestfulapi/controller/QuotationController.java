@@ -3,6 +3,7 @@ package pl.kowalczuk.quotesrestfulapi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.kowalczuk.quotesrestfulapi.exception.ResourceNotFoundException;
 import pl.kowalczuk.quotesrestfulapi.model.Quotation;
 import pl.kowalczuk.quotesrestfulapi.repository.QuotationRepository;
 
@@ -10,6 +11,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/quotations")
@@ -28,6 +30,18 @@ public class QuotationController {
             throws ResourceNotFoundException {
         Quotation quotation = quotationRepository.findById(quotationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Quotation not found for this id :: " + quotationId));
+        return ResponseEntity.ok().body(quotation);
+    }
+
+    @GetMapping("/getRandom")
+    public ResponseEntity<Quotation> getQuotationRandom()
+            throws ResourceNotFoundException {
+        long leftLimit = 1L;
+        long rightLimit = quotationRepository.count();
+        long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+
+        Quotation quotation = quotationRepository.findById(generatedLong)
+                .orElseThrow(() -> new ResourceNotFoundException("Quotation not found for this id :: " + generatedLong));
         return ResponseEntity.ok().body(quotation);
     }
 

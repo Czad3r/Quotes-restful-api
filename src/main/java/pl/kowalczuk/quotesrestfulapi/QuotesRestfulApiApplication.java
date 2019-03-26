@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class QuotesRestfulApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(QuotesRestfulApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(QuotesRestfulApiApplication.class, args);
+    }
 
 }
