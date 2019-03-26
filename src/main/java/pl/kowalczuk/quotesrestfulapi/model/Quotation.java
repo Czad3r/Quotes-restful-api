@@ -3,7 +3,7 @@ package pl.kowalczuk.quotesrestfulapi.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "quotes")
+@Table(name = "quotesTable")
 public class Quotation {
 
     private long id;
