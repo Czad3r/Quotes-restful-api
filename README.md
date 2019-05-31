@@ -20,6 +20,7 @@ Done:
 +Simple Vaadin user interface  
 
 
-Example of using: - consuming api on site by jquery (http://kowalczuk.cba.pl/)
+Example of using: 
+- consuming api on site by jquery (http://kowalczuk.cba.pl/)
 
-                  - Vaadin interface https://quotes-resful-api.herokuapp.com/listAll
+- Vaadin interface https://quotes-resful-api.herokuapp.com/listAll
