@@ -21,4 +21,5 @@ Done:
 
 
 Example of using: - consuming api on site by jquery (http://kowalczuk.cba.pl/)
+
                   - Vaadin interface https://quotes-resful-api.herokuapp.com/listAll
