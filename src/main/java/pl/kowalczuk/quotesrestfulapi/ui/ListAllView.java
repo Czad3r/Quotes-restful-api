@@ -36,7 +36,7 @@ public class ListAllView extends VerticalLayout {
         add(actions, grid, this.editor);
 
         grid.setHeight("200px");
-        grid.setColumns("id", "Quote", "Author", "Source");
+        grid.setColumns("id", "text", "author", "source");
         grid.getColumnByKey("id").setWidth("50px").setFlexGrow(0);
         grid.asSingleSelect().addValueChangeListener(e -> {
             this.editor.editQuotation(e.getValue());

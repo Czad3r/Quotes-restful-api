@@ -24,7 +24,7 @@ public class QuotesEditor extends VerticalLayout implements KeyNotifier {
     private QuotationRepository repository;
     private Quotation quotation;
 
-    TextField quotationText = new TextField("Quotation");
+    TextField text = new TextField("Quotation");
     TextField author = new TextField("Author");
     TextField source = new TextField("Source");
 
@@ -37,7 +37,7 @@ public class QuotesEditor extends VerticalLayout implements KeyNotifier {
     private ChangeHandler changeHandler;
 
     public QuotesEditor() {
-        add(quotationText, author, source);
+        add(text, author, source);
 
         binder.bindInstanceFields(this);
 
@@ -87,7 +87,7 @@ public class QuotesEditor extends VerticalLayout implements KeyNotifier {
         setVisible(true);
 
         // Focus first name initially
-        quotationText.focus();
+        text.focus();
     }
 
     public void setChangeHandler(ChangeHandler changeHandler) {
