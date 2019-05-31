@@ -11,7 +11,6 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 @RestController
 @RequestMapping("/quotations")
@@ -23,6 +22,11 @@ public class QuotationController {
     @GetMapping("/getAll")
     public List<Quotation> getAllQuotations() {
         return quotationRepository.findAll();
+    }
+
+    @GetMapping("/getFilter/{filter}")
+    public List<Quotation> getAllQuotationsLike(@PathVariable(value = "filter") String filterText) {
+        return quotationRepository.findByFilter(filterText);
     }
 
     @GetMapping("/getAll/{id}")
@@ -52,7 +56,7 @@ public class QuotationController {
 
     @PutMapping("/postQuotation/{id}")
     public ResponseEntity<Quotation> updateQuotation(@PathVariable(value = "id") Long quotationId,
-                                                   @Valid @RequestBody Quotation quotationDetails) throws ResourceNotFoundException {
+                                                     @Valid @RequestBody Quotation quotationDetails) throws ResourceNotFoundException {
         Quotation quotation = quotationRepository.findById(quotationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Quotation not found for this id :: " + quotationId));
 
@@ -63,8 +67,8 @@ public class QuotationController {
         return ResponseEntity.ok(updatedQuotation);
     }
 
-    @DeleteMapping("/employees/{id}")
-    public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long quotationId)
+    @DeleteMapping("/delete/{id}")
+    public Map<String, Boolean> deleteQuotation(@PathVariable(value = "id") Long quotationId)
             throws ResourceNotFoundException {
         Quotation quotation = quotationRepository.findById(quotationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Quotation not found for this id :: " + quotationId));
