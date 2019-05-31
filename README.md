@@ -17,5 +17,8 @@ Done:
 
 +Integration Testing for REST APIs
 
++Simple Vaadin user interface  
 
-Example of using: - consuming api on site by jquery (http://kowalczuk.c0.pl/)
+
+Example of using: - consuming api on site by jquery (http://kowalczuk.cba.pl/)
+                  - Vaadin interface https://quotes-resful-api.herokuapp.com/listAll
